@@ -48,4 +48,19 @@ class OrderControllerWebFluxTests {
                     assertThat(actualOrder.status()).isEqualTo(OrderStatus.REJECTED);
                 });
     }
+
+    @Test
+    void whenBookOrderExceedingLimitThenBadRequest() {
+
+        var orderRequest = new OrderRequest("1234567890", 7);
+
+        webTestClient
+                .post()
+                .uri("/orders")
+                .bodyValue(orderRequest)
+                .exchange()
+                .expectStatus().isBadRequest();
+
+
+    }
 }
