@@ -34,4 +34,6 @@ spec:
               value: http://config-service
             - name: POLAR_CATALOG_SERVICE_URI
               value: http://catalog-service
+            - name: SPRING_RABBITMQ_HOST
+              value: polar-rabbitmq
 
