@@ -37,6 +37,11 @@ spring:
         initial-interval: 1000
         max-interval: 2000
         multiplier: 1.1
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/PolarBookshop
   r2dbc:
     username: user
     password: password
@@ -59,3 +64,7 @@ spring:
 polar:
   catalog-service-uri: "http://localhost:9001"
   timeout: 3
+
+logging:
+  level:
+    org.springframework.security: TRACE
