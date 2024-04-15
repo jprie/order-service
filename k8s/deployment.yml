@@ -38,5 +38,17 @@ spec:
               value: polar-rabbitmq
             - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
               value: http://polar-keycloak/realms/PolarBookshop
+          livenessProbe:
+            httpGet:
+              port: 9002
+              path: /actuator/health/liveness
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              port: 9002
+              path: /actuator/health/readiness
+            initialDelaySeconds: 20
+            periodSeconds: 15
 
 
