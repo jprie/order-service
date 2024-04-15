@@ -37,6 +37,7 @@ public class OrderService {
     public Mono<Order> submitOrder(String isbn, int quantity) {
         return bookClient.getBookByIsbn(isbn)
                 .map(book -> buildAcceptedOrder(book, quantity))
+                .log()
                 .defaultIfEmpty(
                         buildRejectedOrder(isbn, quantity)
                 )
