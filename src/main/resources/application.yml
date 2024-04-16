@@ -65,10 +65,6 @@ polar:
   catalog-service-uri: "http://localhost:9001"
   timeout: 3
 
-#logging:
-#  level:
-#    org.springframework.security: TRACE
-
 management:
   endpoints:
     web:
@@ -83,3 +79,7 @@ management:
   metrics:
     tags:
       application: ${spring.application.name}
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
