@@ -80,3 +80,6 @@ management:
         enabled: true
       show-details: always
       show-components: always
+  metrics:
+    tags:
+      application: ${spring.application.name}
